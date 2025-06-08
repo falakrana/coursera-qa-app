@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Coursera QA</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <h1>Ask Questions about Coursera Courses</h1>
+
+    <form method="POST" id="qa-form">
+        <input type="text" name="course_url" placeholder="Enter Coursera course URL" value="{{ course_url }}"
+            required />
+        <textarea name="question" placeholder="Ask a question about the course..." required>{{ question }}</textarea>
+        <button type="submit" id="askBtn">Ask</button>
+    </form>
+
+    <!-- 🔄 Spinner -->
+    <div id="spinner" class="spinner hidden"></div>
+
+    {% if response %}
+    <h2>Response:</h2>
+    <p>{{ response | safe }}</p>
+    {% endif %}
+
+    <script>
+        const form = document.getElementById('qa-form');
+        const spinner = document.getElementById('spinner');
+
+        form.addEventListener('submit', () => {
+            spinner.classList.remove('hidden');
+        });
+
+        // Hide spinner if there's a response (when page reloads after form submission)
+        document.addEventListener('DOMContentLoaded', () => {
+            {% if response %}
+            spinner.classList.add('hidden');
+            {% endif %}
+        });
+    </script>
+</body>
+
+</html>

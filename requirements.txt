@@ -1,0 +1,7 @@
+flask
+langchain
+langchain-groq
+playwright
+python-dotenv
+markdown
+markupsafe
