@@ -5,3 +5,5 @@ playwright
 python-dotenv
 markdown
 markupsafe
+
+langchain-google-genai

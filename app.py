@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 from playwright.sync_api import sync_playwright
 from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
-from langchain_groq import ChatGroq
+from langchain_google_genai import ChatGoogleGenerativeAI
 import os
 from dotenv import load_dotenv
 
@@ -11,7 +11,8 @@ load_dotenv()
 app = Flask(__name__)
 
 # Setup model
-model = ChatGroq(model="llama3-70b-8192")
+# model = ChatGroq(model="llama3-70b-8192")
+model = ChatGoogleGenerativeAI(model = "gemini-1.5-flash")
 
 prompt = PromptTemplate(
     template="Answer the following question:\n\n{question}\n\nFrom the following text:\n\n{text}",
@@ -63,3 +64,4 @@ def index():
 
 if __name__ == "__main__":
     app.run(debug=True)
+

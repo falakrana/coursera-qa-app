@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Coursera QA Assistant</title>
+  <link rel="stylesheet" href="/popup/popup.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="header">
+    <!-- <img src="/popup/icon128.png" alt="Coursera Logo" class="logo"> -->
+    <h1>Coursera Q&A Assistant</h1>
+  </div>
+
+  <form id="qa-form">
+    <div class="input-container">
+      <textarea id="question" placeholder="Ask any question about the course content..." required></textarea>
+      <button type="submit" id="askBtn">
+        <span class="button-text">Get Answer</span>
+        <svg class="button-icon" viewBox="0 0 24 24" width="18" height="18">
+          <path fill="currentColor" d="M3.9,12c0-1.71,1.39-3.1,3.1-3.1h4V7H7c-2.76,0-5,2.24-5,5s2.24,5,5,5h4v-1.9H7C5.29,15.1,3.9,13.71,3.9,12z M8,13h8v-2H8V13z M17,7h-4v1.9h4c1.71,0,3.1,1.39,3.1,3.1s-1.39,3.1-3.1,3.1h-4V17h4c2.76,0,5-2.24,5-5S19.76,7,17,7z"></path>
+        </svg>
+      </button>
+    </div>
+  </form>
+
+  <div id="spinner" class="spinner hidden"></div>
+
+  <div id="response-container" class="hidden">
+    <div class="response-header">
+      <h2>Answer</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="response-content">
+      <p id="response"></p>
+    </div>
+  </div>
+
+  <script src="/popup/popup.js"></script>
+</body>
+</html>
